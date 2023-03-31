@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Emails
+{% endblock %}
+
+{% block main %}
+    <div>
+        <div class="list-group-item">
+         <strong>Sender:</strong> {{ emailDetail.sender }}
+        </div>
+        <div class="list-group-item">
+         <strong>To:</strong> {{ emailDetail.recipient }}
+        </div>
+        <div class="list-group-item">
+         <strong>Subject:</strong> {{ emailDetail.subject }}
+        </div>
+        <div class="list-group-item">
+         <strong>Timestamp:</strong> {{ emailDetail.timestamp }}
+        </div>
+        <div class="list-group-item">
+         <strong>Body:</strong> {{ emailDetail.body }}
+        </div>
+        <div class="my-3">
+         <form action="reply" method="post">
+            <input type="hidden" name="emailId" value="{{ emailDetail.id }}">
+            <input type="submit" class="btn btn-success" value="Reply">
+         </form>
+        </div>
+    </div>
+{% endblock %}
